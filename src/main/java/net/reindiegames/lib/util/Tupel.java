@@ -56,7 +56,10 @@ public class Tupel<F, S> {
      * @return Returns the constructed Tupel containing the given Values.
      */
     public static <F, S> Tupel<F, S> immutable(F first, S second) {
-        return new Tupel<F, S>(first, second, false);
+        final Tupel<F, S> tupel = Tupel.mutable(first, second);
+        tupel.mutable = false;
+
+        return tupel;
     }
 
     /**
